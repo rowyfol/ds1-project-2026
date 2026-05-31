@@ -33,7 +33,7 @@ with open("simulation.log", "r") as f:
 
 # Plotting the data
 fig, axs = plt.subplots(5, 1, figsize=(10, 8), sharex=True)
-fig.suptitle('Digital Logic Waveforms (from $monitor output)')
+fig.suptitle('Digital Logic Waveforms')
 
 # Use step plot for digital signals
 axs[0].step(times, a, where='post', color='blue')
