@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module pj1(
+module main(
     input a,
     input b,
     input c,
