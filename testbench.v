@@ -7,7 +7,7 @@ module test;
     wire h, g;
 
     // Instantiate the main module
-    pj1 uut(
+    main uut(
         .a(a),
         .b(b),
         .c(c),
