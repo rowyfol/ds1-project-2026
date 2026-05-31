@@ -1,0 +1,8 @@
+VCD info: dumpfile wave.vcd opened for output.
+Time=0 | a=0 b=0 c=0 | g=x h=x
+Time=4000 | a=0 b=0 c=0 | g=1 h=x
+Time=8000 | a=0 b=0 c=0 | g=1 h=0
+Time=20000 | a=1 b=0 c=1 | g=1 h=0
+Time=40000 | a=1 b=1 c=1 | g=1 h=0
+Time=44000 | a=1 b=1 c=1 | g=0 h=0
+testbench.v:41: $finish called at 60000 (1ps)
