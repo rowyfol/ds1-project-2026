@@ -8,7 +8,8 @@ print("Reading simulation.log...")
 # Parse the $monitor output from the log file
 with open("simulation.log", "r") as f:
     for line in f:
-        if "time=" in line:
+        # Fixed the case-sensitivity issue here!
+        if "Time=" in line:
             parts = line.split("|")
             
             # Extract time
@@ -34,7 +35,7 @@ with open("simulation.log", "r") as f:
 fig, axs = plt.subplots(5, 1, figsize=(10, 8), sharex=True)
 fig.suptitle('Digital Logic Waveforms (from $monitor output)')
 
-# Use step plot for digital signals (post-step behavior to mimic digital logic)
+# Use step plot for digital signals
 axs[0].step(times, a, where='post', color='blue')
 axs[0].set_ylabel('Input A')
 axs[0].set_ylim(-0.2, 1.2)
