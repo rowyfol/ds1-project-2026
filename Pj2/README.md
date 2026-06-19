@@ -1,16 +1,15 @@
 # Project 2
 
-This folder has my Verilog files for the digital logic project.
+This folder contains the Verilog files for the digital logic project.
 
 ## Folders
 
-1. `full-adder` : one bit full adder
-2. `4bit-full-adder` : four bit ripple carry adder
+1. `full-adder` : one bit full adder with separate delays for sum and carry
+2. `4bit-full-adder` : four bit ripple carry adder made from full adders
 3. `2-1-mux` : one bit 2 to 1 multiplexer
-4. `4bit-mux` : four bit 2 to 1 multiplexer
+4. `4bit-mux` : four bit 2 to 1 multiplexer made from one bit multiplexers
 5. `8bit-adders` : 8 bit ripple carry adder and carry select adder
-6. `report` : short LaTeX text for the simulation and delay part
-7. `tools` : small script for making PNG waveform images and GTKWave files
+6. `report` : short LaTeX text for the simulation and delay comparison
 
 ## Run
 
@@ -20,19 +19,17 @@ First go to the project folder:
 cd Pj2
 ```
 
-Run all simulations:
+Compile every simulation:
+
+```bash
+make compile
+```
+
+Run all simulations and generate VCD waveform files:
 
 ```bash
 make test
 ```
-
-Generate PNG waveform images for all parts:
-
-```bash
-make waves
-```
-
-The images will be created in `Pj2/wave-images`. GTKWave save files can be created with `make gtkw-files` and will be placed in `Pj2/gtkw-files`.
 
 Open the 8 bit adder waveform in GTKWave:
 
