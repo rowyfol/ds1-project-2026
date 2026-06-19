@@ -8,7 +8,7 @@ module tb_main_mux;
   mux4bit DUT(A, B, Sel, Y);
 
   initial begin
-    $dumpfile("Pj2/4bit-mux/mux4.vcd");
+    $dumpfile("4bit-mux/mux4.vcd");
     $dumpvars(0, tb_main_mux);
     $monitor("time=%0t A=%b B=%b Sel=%b  Y=%b", $time, A, B, Sel, Y);
 

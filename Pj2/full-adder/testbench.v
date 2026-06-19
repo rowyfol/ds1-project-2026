@@ -7,7 +7,7 @@ module tb_full_adder;
   full_adder DUT(A, B, Cin, S, Co);
 
   initial begin
-    $dumpfile("Pj2/full-adder/full_adder.vcd");
+    $dumpfile("full-adder/full_adder.vcd");
     $dumpvars(0, tb_full_adder);
     $monitor("time=%0t A=%b B=%b Cin=%b  S=%b Co=%b", $time, A, B, Cin, S, Co);
 

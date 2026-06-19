@@ -10,7 +10,7 @@ module tb_adders8;
   carry_select_adder8 CSA(A, B, Cin, S_select, Cout_select);
 
   initial begin
-    $dumpfile("Pj2/8bit-adders/adders8.vcd");
+    $dumpfile("8bit-adders/adders8.vcd");
     $dumpvars(0, tb_adders8);
     $monitor("time=%0t A=%h B=%h Cin=%b  ripple=%b_%h  select=%b_%h",
              $time, A, B, Cin, Cout_ripple, S_ripple, Cout_select, S_select);

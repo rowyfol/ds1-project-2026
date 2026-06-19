@@ -9,7 +9,7 @@ module tb_adder4;
   adder4 DUT(A, B, Cin, S, Cout);
 
   initial begin
-    $dumpfile("Pj2/4bit-full-adder/adder4.vcd");
+    $dumpfile("4bit-full-adder/adder4.vcd");
     $dumpvars(0, tb_adder4);
     $monitor("time=%0t A=%b B=%b Cin=%b  S=%b Cout=%b", $time, A, B, Cin, S, Cout);
 

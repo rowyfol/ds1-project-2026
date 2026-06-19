@@ -10,8 +10,15 @@ This folder has my Verilog files for the digital logic project.
 4. `4bit-mux` : four bit 2 to 1 multiplexer
 5. `8bit-adders` : 8 bit ripple carry adder and carry select adder
 6. `report` : short LaTeX text for the simulation and delay part
+7. `tools` : small script for drawing waveform images from VCD files
 
 ## Run
+
+First go to the project folder:
+
+```bash
+cd Pj2
+```
 
 Run all simulations:
 
@@ -19,10 +26,18 @@ Run all simulations:
 make test
 ```
 
-Open the 8 bit adder waveform:
+Generate SVG waveform images for all parts:
 
 ```bash
-make wave-adders8
+make waves
+```
+
+The images will be created in `Pj2/wave-images`.
+
+Open the 8 bit adder waveform in GTKWave:
+
+```bash
+make view-8bit
 ```
 
 Clean generated files:

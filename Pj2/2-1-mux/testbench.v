@@ -7,7 +7,7 @@ module testbench;
   mux_main DUT(I0, I1, Sel, Y);
 
   initial begin
-    $dumpfile("Pj2/2-1-mux/mux2.vcd");
+    $dumpfile("2-1-mux/mux2.vcd");
     $dumpvars(0, testbench);
     $monitor("time=%0t I0=%b I1=%b Sel=%b  Y=%b", $time, I0, I1, Sel, Y);
 
