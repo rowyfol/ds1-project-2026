@@ -1,0 +1,7 @@
+build/
+*.vvp
+*.vcd
+Pj2/build/
+Pj2/wave-images/
+Pj2/gtkw-files/
+__pycache__/
