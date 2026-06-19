@@ -8,21 +8,21 @@ module tb_adder4;
   );
   initial begin
 
-  A=4'b0011;
-  B=4'b0101;
-  Cin=0;
-  #50;
+    A=4'b0011;
+    B=4'b0101;
+    Cin=0;
+    #50;
 
-  A=4'b1111;
-  B=4'b0001;
-  Cin=0;
-  #50;
+    A=4'b1111;
+    B=4'b0001;
+    Cin=0;
+    #50;
 
-  A=4'b1010;
-  B=4'b0110;
-  Cin=1;
-  #50;
+    A=4'b1010;
+    B=4'b0110;
+    Cin=1;
+    #50;
 
-  $stop;
+    $stop;
   end
 endmodule
