@@ -51,7 +51,7 @@ This report details the design and simulation of various digital components, cul
 \section{Module Designs}
 
 \subsection{Full Adder (1-bit)}
-The foundation of our adders is the 1-bit Full Adder module (\texttt{full\_adder}). It takes two bits $A, B$ and a carry-in $C_{in}$ as inputs. We assigned a delay of $t_{sum} = 10$\,ns for the sum output and $t_{co} = 8$\,ns for the carry-out ($C_o$). These values were chosen arbitrarily but reflect common hardware characteristics where carry logic is prioritized.
+The foundation of our adders is the 1-bit Full Adder module (\texttt{full\_adder}). It takes two bits $A, B$ and a carry-in $C_{in}$ as inputs. We assigned a delay of $t_{sum} = 12$\,ns for the sum output and $t_{co} = 7$\,ns for the carry-out ($C_o$). These values are intentionally different from the original defaults and keep carry logic faster than sum logic, which is useful when comparing ripple-carry and carry-select timing paths.
 
 \subsection{4-bit Ripple Carry Adder}
 We designed a 4-bit adder (\texttt{adder4}) by cascading four 1-bit Full Adders. The carry output of each bit is linked to the carry input of the next bit. This module serves as a sub-component for our larger 8-bit designs.
@@ -79,27 +79,27 @@ The simulation results were captured in VCD (Value Change Dump) files and verifi
 
 \section{Delay Analysis and Comparison}
 
-A critical part of this project was analyzing how different architectures affect performance. We used the following delay parameters: $t_{sum} = 10$\,ns, $t_{co} = 8$\,ns, and $t_{mux} = 5$\,ns.
+A critical part of this project was analyzing how different architectures affect performance. We used the following delay parameters: $t_{sum} = 12$\,ns, $t_{co} = 7$\,ns, and $t_{mux} = 5$\,ns.
 
 \paragraph{Ripple Carry Adder (RCA):}
 In an 8-bit RCA, the critical path is the carry propagation. The $n$-th sum bit is ready at $(n-1)t_{co} + t_{sum}$. For 8 bits ($n=8$):
-\[ \text{Delay}_{RCA} = 7 \times 8\,\text{ns} + 10\,\text{ns} = 66\,\text{ns} \]
-The final carry-out is ready at $8 \times 8\,\text{ns} = 64$\,ns.
+\[ \text{Delay}_{RCA} = 7 \times 7\,\text{ns} + 12\,\text{ns} = 61\,\text{ns} \]
+The final carry-out is ready at $8 \times 7\,\text{ns} = 56$\,ns.
 
 \paragraph{Carry Select Adder (CSA):}
 The CSA speeds things up by pre-calculating the upper 4 bits. The delay is determined by the lower 4-bit carry-out plus the multiplexer selection time:
-\[ \text{Delay}_{CSA} = (4 \times 8\,\text{ns}) + 5\,\text{ns} = 37\,\text{ns} \text{ (for Cout)} \]
-The upper sum bits are ready slightly later at $34\,\text{ns} + 5\,\text{ns} = 39$\,ns.
+\[ \text{Delay}_{CSA} = (4 \times 7\,\text{ns}) + 5\,\text{ns} = 33\,\text{ns} \text{ (for Cout)} \]
+The upper sum bits are ready slightly later because the precomputed upper 4-bit sums require $3 \times 7\,\text{ns} + 12\,\text{ns} = 33$\,ns before the MUX selection, so their selected value is ready at $33\,\text{ns} + 5\,\text{ns} = 38$\,ns.
 
 \paragraph{Final Verdict:}
-The Carry Select Adder achieves a significant performance boost. By "spending" more hardware to pre-calculate potential outcomes, we reduced the total critical path delay from \textbf{66\,ns} to \textbf{39\,ns} (a ~40\% improvement).
+The Carry Select Adder achieves a significant performance boost. By "spending" more hardware to pre-calculate potential outcomes, we reduced the total critical path delay from \textbf{61\,ns} to \textbf{38\,ns} (about a 38\% improvement).
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|}
 \hline
 \textbf{Metric} & \textbf{Ripple Carry Adder} & \textbf{Carry Select Adder} \\ \hline
-Critical Path (Worst Case) & 66\,ns & 39\,ns \\ \hline
+Critical Path (Worst Case) & 61\,ns & 38\,ns \\ \hline
 Complexity & Low (8 FAs) & High (12 FAs + MUXes) \\ \hline
 Performance & Standard & Optimized \\ \hline
 \end{tabular}
