@@ -1,7 +1,7 @@
-module tb_mux2_1;
+module testbench;
 reg I0,I1,Sel;
 wire Y;
-mux2_1 DUT(
+mux_main DUT(
     I0,I1,Sel,Y
 );
 
