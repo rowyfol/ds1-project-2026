@@ -5,9 +5,8 @@ module full_adder(
   output S,
   output Co
 );
-parameter t_sum = 10;
-parameter t_co  = 8;
-assign #(t_sum) S = A ^ B ^ Cin;
-assign #(t_co)  Co = (A&B) | (A&Cin) | (B&Cin);
+  parameter t_sum = 10;
+  parameter t_co  = 8;
+  assign #(t_sum) S = A ^ B ^ Cin;
+  assign #(t_co)  Co = (A&B) | (A&Cin) | (B&Cin);
 endmodule
-
